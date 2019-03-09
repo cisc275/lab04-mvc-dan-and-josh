@@ -32,6 +32,16 @@ public class Model {
 	    put(6, 3);
 	    put(7, 0);
 	}};
+    Map<Integer, Integer []> movMods = new HashMap<Integer,Integer []>() {{
+	     put(0, new Integer [] {1,0} );
+	     put(1, new Integer [] {0,-1} );
+	     put(2, new Integer []  {1,-1} );
+	     put(3, new Integer []  {-1,-1} );
+	     put(4, new Integer []  {0,1} );
+	     put(5, new Integer []  {1,1} );
+	     put(6, new Integer []  {-1,1} );
+	     put(7, new Integer []  {-1,0} );
+	 }};	    
 
     
     public Model(int fw, int fh, int iw, int ih) {
@@ -87,40 +97,10 @@ public class Model {
     }
 
     // Sets the motion flags based on current direction
+	   
     private void setMoveMods() {
-	switch (direction) {
-	case 0:
-	    xMod = 1;
-	    yMod = 0;
-	    break;
-	case 1:
-	    xMod = 0;
-	    yMod = -1;
-	    break;
-	case 2:
-	    xMod = 1;
-	    yMod = -1;
-	    break;
-	case 3:
-	    xMod = -1;
-	    yMod = -1;
-	    break;
-	case 4:
-	    xMod = 0;
-	    yMod = 1;
-	    break;
-	case 5:
-	    xMod = 1;
-	    yMod = 1;
-	    break;
-	case 6:
-	    xMod = -1;
-	    yMod = 1;
-	    break;
-	default:
-	    xMod = -1;
-	    yMod = 0;
-	    break;
-	}
+	Integer []mods =  movMods.get(direction);
+	xMod = mods[0];
+	yMod = mods[1];
     }
 }
