@@ -2,23 +2,23 @@
 
 public enum Direction {
 
-	NORTH("north"),
-	NORTHEAST("northeast"),
-	EAST("east"),
-	SOUTHEAST("southeast"),
-	SOUTH("south"),
-	SOUTHWEST("southwest"),
-	WEST("west"),
-	NORTHWEST("northwest");
+    EAST("east"),
+    NORTH("north"),
+    NORTHEAST("northeast"),
+    NORTHWEST("northwest"),	
+    SOUTH("south"),
+    SOUTHEAST("southeast"),
+    SOUTHWEST("southwest"),
+    WEST("west");
 	
-	private String name = null;
+    private String name = null;
 	
-	private Direction(String s){
-		name = s;
-	}
-	public String getName() {
-		return name;
-	}
+    private Direction(String s){
+	name = s;
+    }
+    public String getName() {
+	return name;
+    }
 
 
 }
