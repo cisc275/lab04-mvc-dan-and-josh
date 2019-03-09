@@ -8,6 +8,8 @@
  * provide direction
  * provide location
  **/
+import java.util.*;
+
 public class Model {
     int xLoc = 0;
     int yLoc = 0;
@@ -20,7 +22,18 @@ public class Model {
     int frameHeight;
     int imgWidth;
     int imgHeight;
+    Map<Integer, Integer> dirMap = new HashMap<Integer, Integer>() {{
+	    put(0, 7);
+	    put(1, 4);
+	    put(2, 5);
+	    put(3, 2);
+	    put(4, 1);
+	    put(5, 6);
+	    put(6, 3);
+	    put(7, 0);
+	}};
 
+    
     public Model(int fw, int fh, int iw, int ih) {
 	frameWidth = fw;
 	frameHeight = fh;
@@ -70,32 +83,7 @@ public class Model {
 
     // Changes direction based on current direction
     private void changeDirection() {
-	switch (direction) {
-	case 0:
-	    direction = 7;
-	    break;
-	case 1:
-	    direction = 4;
-	    break;
-	case 2:
-	    direction = 5;
-	    break;
-	case 3:
-	    direction = 2;
-	    break;
-	case 4:
-	    direction = 1;
-	    break;
-	case 5:
-	    direction = 6;
-	    break;
-	case 6:
-	    direction = 3;
-	    break;
-	default:
-	    direction = 0;
-	    break;
-	}
+	direction = dirMap.get(direction);
     }
 
     // Sets the motion flags based on current direction
